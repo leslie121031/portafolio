@@ -4,16 +4,28 @@ import { ref } from 'vue';
 
 <template>
   <div class="header">
-    <p>home</p>
+    <p>Home</p>
+    <p>Projects</p>
+    <h2>LESLIE ARTETA</h2>
+    <p>About /me<p>
+    <p>Social networks</p>
   </div>
 </template>
 
 <style scoped>
 .header {
-  height: 20px;
+  background-image: url('mariposas.png'); /* Ajusta la ruta según tu archivo */
+  background-size: contain;
+  background-position: center;
+  background-repeat: repeat;
   background-color: #f3dde5;
   font-family: 'Comic Neue', cursive;
-  font-weight: 400;
+  font-weight: 500;
   font-style: normal;
+  display: flex;
+  gap: 70px;
+  justify-content: center;
+  align-items: center;
+  height: 120px;
 }
 </style>
