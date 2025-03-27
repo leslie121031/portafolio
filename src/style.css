@@ -1,15 +1,40 @@
-:root {
-}
 
-* {
+
+*  {
   margin: 0;
   padding: 0;
   position: relative;
   box-sizing: border-box;
 }
 
+
+
 body {
+  background-image: url('/fondo_mariposas.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
 }
+
+#app {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: max-content 1fr max-content;
+}
+
+
+
+
+
+.header {
+  background-image: url('mariposas.png');
+  }
+
+  
+  
+
 
 #app {
 
