@@ -1,12 +1,12 @@
 <script setup>
-import HomeView from './components/HomeView.vue';
+import AboutView from './components/AboutView.vue';
 import TheHeader from './components/TheHeader.vue';
 import TheFooter from './components/TheFooter.vue';
 </script>
 
 <template>
   <TheHeader />
-  <HomeView />
+  <AboutView />
   <TheFooter />
 </template>
 
