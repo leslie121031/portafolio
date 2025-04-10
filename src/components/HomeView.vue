@@ -1,5 +1,7 @@
 <script setup>
 import { ref } from 'vue';
+import ProjectList from './ProjectList.vue';
+import SingleCover from './SingleCover.vue';
 </script>
 
 <template>
@@ -24,6 +26,8 @@ import { ref } from 'vue';
       </div>
     </div>
   </section>
+  <ProjectList />
+  <SingleCover />
 </template>
 
 <style scoped>

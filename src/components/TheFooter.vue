@@ -8,7 +8,11 @@ import { ref } from 'vue';
 
 <style scoped>
 .footer {
-  height: 20px;
-  background-color: blue;
+  height: 90px;
+  background-image: url('mariposas.png'); /* Ajusta la ruta según tu archivo */
+  background-size: contain;
+  background-position: bottom;
+  background-repeat: repeat-x;
+  background-color: #f3dde5;
 }
 </style>
