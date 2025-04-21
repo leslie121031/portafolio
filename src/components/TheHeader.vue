@@ -27,5 +27,27 @@ import { ref } from 'vue';
   justify-content: center;
   align-items: center;
   height: 120px;
+  flex-wrap: wrap;
+  text-align: center;
+  padding: 0 10px;
+}
+
+/* Responsive para celulares */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    gap: 15px;
+    height: auto; /* Ya no fuerza altura */
+    padding: 20px 10px;
+  }
+
+  .header h2 {
+    font-size: 1.4rem;
+  }
+
+  .header p {
+    font-size: 1rem;
+  }
 }
 </style>
+
