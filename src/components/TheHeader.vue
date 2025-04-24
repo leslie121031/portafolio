@@ -1,14 +1,15 @@
 <script setup>
-import { ref } from 'vue';
+import { ref } from 'vue'
+import { RouterLink } from 'vue-router'
 </script>
 
 <template>
   <div class="header">
-    <p>Home</p>
-    <p>Projects</p>
+    <RouterLink to="/">Home</RouterLink>
+    <RouterLink to="/projects">Projects</RouterLink>
     <h2>LESLIE ARTETA</h2>
-    <p>About me</p>
-    <p>Social networks</p>
+    <RouterLink to="/about">About me</RouterLink>
+    <RouterLink to="/social">Social networks</RouterLink> <!-- Ajusta si tienes una ruta real -->
   </div>
 </template>
 
@@ -32,12 +33,17 @@ import { ref } from 'vue';
   padding: 0 10px;
 }
 
+.header a {
+  text-decoration: none;
+  color: inherit;
+}
+
 /* Responsive para celulares */
 @media (max-width: 768px) {
   .header {
     flex-direction: column;
     gap: 15px;
-    height: auto; /* Ya no fuerza altura */
+    height: auto;
     padding: 20px 10px;
   }
 
@@ -45,11 +51,8 @@ import { ref } from 'vue';
     font-size: 1.4rem;
   }
 
-  .header p {
+  .header a {
     font-size: 1rem;
   }
 }
-
-
 </style>
-

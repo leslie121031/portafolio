@@ -1,5 +1,7 @@
 <script setup>
 import ProjectCover from './ProjectCover.vue';
+const database_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vR_jC_VsO6KVFflQgxypfLKeo62n9tK-jLdaJ1xzBdBon0nURYvR852se9yVvcl3HhFEc6M599m-Wox/pub?output=csv"
+
 </script>
 
 <template>

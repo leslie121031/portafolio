@@ -17,7 +17,7 @@ const router = createRouter({
     {
       path: '/projects',
       name: 'projects',
-      component: () => import('../components/ProjectList.vue'),
+      component: () => import('../components/ButterflySkills.vue'),
     },
     {
       path: '/singleproject',
