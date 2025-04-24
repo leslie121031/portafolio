@@ -49,5 +49,7 @@ import { ref } from 'vue';
     font-size: 1rem;
   }
 }
+
+
 </style>
 

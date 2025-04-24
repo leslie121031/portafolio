@@ -1,6 +1,3 @@
-<script setup>
-</script>
-
 <template>
   <section class="about">
     <img src="/m5.png" alt="Mi foto" class="about-img" />
@@ -11,8 +8,14 @@
         <br><br>
         Desde hace tiempo, siento una gran pasión por la edición de video y fotografía para redes sociales como Instagram, YouTube y TikTok. Gracias a mi formación en Producción Gráfica Digital, descubrí mis habilidades en Photoshop y Premiere, herramientas con las que doy vida a experiencias llenas de autenticidad, a través de la imagen y el sonido, quiero mostrar que la vida puede ser buena y divertida, incluso frente a los retos que enfrentamos con el tiempo.
         <br><br>
-        Estoy enfocada en la parte que incluya la  creatividad, estrategia y autenticidad, buscando generar contenido visual atractivo que conecte con la audiencia Una de las cosas que me motiva es  la posibilidad de innovar y evolucionar en el mundo digital, aplicando mis habilidades en diseño y producción multimedia para proyectos que inspiren y comuniquen con impacto.
+        Estoy enfocada en la parte que incluya la creatividad, estrategia y autenticidad, buscando generar contenido visual atractivo que conecte con la audiencia. Una de las cosas que me motiva es la posibilidad de innovar y evolucionar en el mundo digital, aplicando mis habilidades en diseño y producción multimedia para proyectos que inspiren y comuniquen con impacto.
       </p>
+    </div>
+    <!-- Sección de Gmail -->
+    <div class="social">
+      <a href="mailto:lesliearteta103@gmail.com" target="_blank">
+        <img src="/gmail.png" alt="Gmail Logo" class="social-icon" />
+      </a>
     </div>
   </section>
 </template>
@@ -45,5 +48,28 @@
 .about-text h1 {
   margin-bottom: 20px;
   font-size: 28px;
+}
+
+/* Estilos para la sección de Gmail */
+.social {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.social-icon {
+  width: 40px; /* Ajusta el tamaño del logo */
+  height: auto;
+  cursor: pointer;
+}
+
+/* Estilo responsivo */
+@media (max-width: 768px) {
+  .about {
+    flex-direction: column;
+    align-items: center;
+  }
+  .about-img {
+    width: 80%;
+  }
 }
 </style>
