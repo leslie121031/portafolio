@@ -6,7 +6,7 @@ import { RouterLink } from 'vue-router'
 <template>
   <div class="header">
     <RouterLink to="/">Home</RouterLink>
-    <RouterLink to="/projects">Projects</RouterLink>
+    <RouterLink to="/skills">Projects</RouterLink>
     <h2>LESLIE ARTETA</h2>
     <RouterLink to="/about">About me</RouterLink>
     <RouterLink to="/social">Social networks</RouterLink> <!-- Ajusta si tienes una ruta real -->

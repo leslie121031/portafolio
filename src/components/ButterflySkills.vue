@@ -1,24 +1,23 @@
-<!-- src/components/ButterflySkills.vue -->
 <template>
     <section>
       <h1>“Transformation is the essence of creativity”</h1>
       <div class="contenedor-mariposas">
-        <div class="mariposa">
+        <router-link :to="{ path: '/projects', query: { seccion: 'indesign' } }" class="mariposa">
           <img src="/m1.png" alt="Mariposa 1" />
           <p>InDesign</p>
-        </div>
-        <div class="mariposa">
+        </router-link>
+        <router-link :to="{ path: '/projects', query: { seccion: 'premier' } }" class="mariposa">
           <img src="/m2.png" alt="Mariposa 2" />
           <p>Premiere</p>
-        </div>
-        <div class="mariposa">
+        </router-link>
+        <router-link :to="{ path: '/projects', query: { seccion: 'illustrator' } }" class="mariposa">
           <img src="/m3.png" alt="Mariposa 3" />
           <p>Illustrator</p>
-        </div>
-        <div class="mariposa">
+        </router-link>
+        <router-link :to="{ path: '/projects', query: { seccion: 'photoshop' } }" class="mariposa">
           <img src="/m4.png" alt="Mariposa 4" />
           <p>Photoshop</p>
-        </div>
+        </router-link>
       </div>
     </section>
   </template>
@@ -46,6 +45,12 @@
   
   .mariposa {
     text-align: center;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+  }
+  
+  .mariposa:hover {
+    transform: scale(1.05);
   }
   
   .mariposa img {

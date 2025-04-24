@@ -1,16 +1,50 @@
 <script setup>
+import { ref, onMounted, computed } from 'vue';
+import { useRoute } from 'vue-router';
+import Papa from 'papaparse';
 import ProjectCover from './ProjectCover.vue';
-const database_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vR_jC_VsO6KVFflQgxypfLKeo62n9tK-jLdaJ1xzBdBon0nURYvR852se9yVvcl3HhFEc6M599m-Wox/pub?output=csv"
 
+const route = useRoute();
+const database_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vR_jC_VsO6KVFflQgxypfLKeo62n9tK-jLdaJ1xzBdBon0nURYvR852se9yVvcl3HhFEc6M599m-Wox/pub?gid=1685679120&single=true&output=csv"
+const items = ref([]);
+
+onMounted(() => {
+  fetch(database_url)
+    .then((response) => response.text())
+    .then((csvText) => {
+      Papa.parse(csvText, {
+        header: true,
+        skipEmptyLines: true,
+        complete: (results) => {
+          items.value = results.data.map((e) => {
+            return e;
+          });
+        },
+      });
+    });
+});
+
+// Computed para filtrar por categoría
+const filteredItems = computed(() => {
+  const seccion = route.query.seccion?.toLowerCase();
+  if (!seccion) return items.value;
+
+  return items.value.filter((item) =>
+    item.seccion?.toLowerCase().includes(seccion)
+  );
+});
 </script>
 
 <template>
   <section class="cont">
     <h1>Projects</h1>
+
     <div class="list">
-        <ProjectCover />
-        <ProjectCover />
-        <ProjectCover />
+      <ProjectCover
+        v-for="(project, index) in filteredItems"
+        :key="index"
+        :project="project"
+      />
     </div>
   </section>
 </template>
@@ -31,21 +65,20 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px; /* Ajusta el espacio entre elementos */
-  max-width: 1000px; /* Limita el ancho total */
+  gap: 20px;
+  max-width: 1000px;
   margin: auto;
 }
 
-/* Ajustes para dispositivos móviles */
 @media (max-width: 768px) {
   .list {
-    flex-direction: column; /* Cambia la disposición a vertical en pantallas pequeñas */
-    align-items: center; /* Centra los elementos en el eje vertical */
+    flex-direction: column;
+    align-items: center;
   }
-  /* Ajusta las imágenes dentro de ProjectCover */
+
   .project-cover img {
-    width: 100%; /* Asegura que las imágenes se ajusten a la anchura del contenedor */
-    height: auto; /* Mantiene las proporciones de las imágenes */
+    width: 100%;
+    height: auto;
   }
 }
 </style>
