@@ -1,3 +1,33 @@
+<script setup>
+import { ref, onMounted } from 'vue';
+import { useRoute } from 'vue-router';
+import Papa from 'papaparse';
+
+const route = useRoute();
+const id = route.params.id;
+
+const database_url =
+  "https://docs.google.com/spreadsheets/d/e/2PACX-1vR_jC_VsO6KVFflQgxypfLKeo62n9tK-jLdaJ1xzBdBon0nURYvR852se9yVvcl3HhFEc6M599m-Wox/pub?gid=1685679120&single=true&output=csv";
+
+const project = ref(null);
+
+onMounted(() => {
+    console.log(id)
+  fetch(database_url)
+    .then((response) => response.text())
+    .then((csvText) => {
+      Papa.parse(csvText, {
+        header: true,
+        skipEmptyLines: true,
+        complete: (results) => {
+          const data = results.data;
+          project.value = data.find((p) => p.id === id);
+        },
+      });
+    });
+});
+</script>
+
 <template>
     <div class="project-cover">
       <img src="/p1.png" alt="Project Image">

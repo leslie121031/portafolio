@@ -1,10 +1,11 @@
 <script setup>
 import { ref, onMounted, computed } from 'vue';
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 import Papa from 'papaparse';
 import ProjectCover from './ProjectCover.vue';
 
 const route = useRoute();
+const router = useRouter()
 const database_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vR_jC_VsO6KVFflQgxypfLKeo62n9tK-jLdaJ1xzBdBon0nURYvR852se9yVvcl3HhFEc6M599m-Wox/pub?gid=1685679120&single=true&output=csv"
 const items = ref([]);
 
@@ -33,6 +34,10 @@ const filteredItems = computed(() => {
     item.seccion?.toLowerCase().includes(seccion)
   );
 });
+
+const goToProject = (id) => {
+  router.push({ name: "singleproject", params: { id } });
+};
 </script>
 
 <template>
@@ -44,6 +49,7 @@ const filteredItems = computed(() => {
         v-for="(project, index) in filteredItems"
         :key="index"
         :project="project"
+        @click="goToProject(project.id)"
       />
     </div>
   </section>

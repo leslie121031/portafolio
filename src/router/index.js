@@ -25,7 +25,7 @@ const router = createRouter({
       component: () => import('../components/ProjectList.vue'),
     },
     {
-      path: '/singleproject',
+      path: '/singleproject/:id',
       name: 'singleproject',
       component: () => import('../components/SingleCover.vue'),
     },

@@ -1,58 +1,66 @@
-<template>
-    <div class="project-cover">
-        <img src="/p1.png" alt="Project Image">
-        <p class="project-title">Nombre: Actitud rebelde.
-            Fecha de creacion:
-            15/03/2024.</p>
+<script setup>
+import { ref, onMounted } from 'vue';
+import { useRoute } from 'vue-router';
 
-        <p class="project-description">Concepto:
-            Una fusion de movimiento,
-            fuerza y estilo que resalta la seguridad y tambien
-            la determinacion.</p>
-    </div>
+
+const props = defineProps({
+    project: {
+        type: Object
+    }
+})
+
+onMounted(()=>{
+    console.log(props.project)
+})
+
+</script>
+
+<template>
+  <div class="project-cover" v-if="project">
+    <img :src="project.imagen || '/default.jpg'" alt="Project Image" />
+    <p class="project-title">
+      Nombre: {{ project.nombre }}  <br />
+      Fecha de creación: {{ project.fecha }}
+    </p>
+    <p class="project-description">
+      Concepto: {{ project.descripcion }}
+    </p>
+  </div>
 </template>
 
 <style scoped>
 .project-cover {
-    width: 200px;
-    /* Tamaño fijo para la tarjeta */
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    /* Apilar imagen y texto */
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+  width: 200px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .project-cover img {
-    width: 100%;
-    /* Ajuste para que la imagen no se salga del div */
-    height: auto;
-    object-fit: cover;
-    border-radius: 20px;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 20px;
 }
 
 .project-title {
-    margin-top: 15px;
-    /* Espaciado entre imagen y texto */
-    font-size: 16px;
-    font-family: 'Comic Neue', cursive;
-    color: white;
-    /* Ajusta el color según tu diseño */
-    font-weight: bold;
-    text-align: left;
+  margin-top: 15px;
+  font-size: 16px;
+  font-family: 'Comic Neue', cursive;
+  color: white;
+  font-weight: bold;
+  text-align: left;
 }
 
 .project-description {
-    margin-top: 15px;
-    /* Espaciado entre título y descripción */
-    font-size: 14px;
-    font-family: 'Comic Neue', cursive;
-    color: white;
-    /* Color más suave para la descripción */
-    max-width: 180px;
-    /* Limita el ancho de la descripción */
-    text-align: left;
+  margin-top: 15px;
+  font-size: 14px;
+  font-family: 'Comic Neue', cursive;
+  color: white;
+  max-width: 180px;
+  text-align: left;
 }
 </style>
