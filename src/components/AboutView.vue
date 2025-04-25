@@ -11,12 +11,13 @@
         Estoy enfocada en la parte que incluya la creatividad, estrategia y autenticidad, buscando generar contenido visual atractivo que conecte con la audiencia. Una de las cosas que me motiva es la posibilidad de innovar y evolucionar en el mundo digital, aplicando mis habilidades en diseño y producción multimedia para proyectos que inspiren y comuniquen con impacto.
       </p>
     </div>
-    <!-- Sección de Gmail -->
-    <div class="social">
-      <a href="mailto:lesliearteta103@gmail.com" target="_blank">
-        <img src="/gmail.png" alt="Gmail Logo" class="social-icon" />
-      </a>
-    </div>
+   <!-- Sección de Gmail -->
+<div class="social">
+  <a href="mailto:lesliearteta103@gmail.com" target="_blank">
+    <img src="/gmail.png" alt="Gmail Logo" class="social-icon" />
+  </a>
+</div>
+
   </section>
 </template>
 

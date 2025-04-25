@@ -7,6 +7,6 @@ import ButterflySkills from './ButterflySkills.vue'; // ← Aquí lo importamos
 
 <template>
   <ButterflySkills />
-  <ProjectList />
-  <SingleCover />
+
 </template>
+

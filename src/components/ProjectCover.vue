@@ -37,6 +37,7 @@ onMounted(()=>{
   justify-content: center;
   align-items: center;
   text-align: center;
+  cursor: pointer;
 }
 
 .project-cover img {

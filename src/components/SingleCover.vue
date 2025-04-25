@@ -29,86 +29,123 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="project-cover">
-      <img src="/p1.png" alt="Project Image">
-      <div class="project-info">
-        <p class="project-title">
-          <strong>Nombre:</strong> Actitud rebelde.<br>
-          <strong>Fecha de creación:</strong> 15/03/2024.
-        </p>
-        <p class="project-description">
-          <strong>Concepto:</strong> Una fusión de movimiento, fuerza y estilo que resalta la seguridad y también la determinación.
-        </p>
+  <div class="projects-section">
+    <h2>Proyectos con Video</h2>
+
+    <div v-if="projects.length" class="project-list">
+      <div
+        v-for="(project, index) in projects"
+        :key="index"
+        class="project-card"
+      >
+        <img
+          :src="project.imagen"
+          alt="Project Image"
+          class="project-image"
+          @click="handleClick(project.video)"
+        />
+        <div class="project-info">
+          <h3>{{ project.nombre }}</h3>
+          <p>{{ project.descripcion }}</p>
+        </div>
       </div>
     </div>
-  </template>
-  
-  <style scoped>
-  .project-cover {
-    display: flex; 
-    align-items: center;
-    gap: 15px; 
-    max-width: 600px; 
-    margin: auto;
-    padding: 10px;
-    flex-direction: row; /* En pantallas grandes, la imagen y el texto estarán en fila */
-  }
-  
-  .project-cover img {
-    width: 200px; 
-    height: auto;
-    object-fit: cover;
-    border-radius: 10px;
-  }
-  
-  .project-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  
-  .project-title {
-    font-size: 25px;
-    font-weight: bold;
-    color: white;
-    margin: 0;
-    font-family: 'Comic Neue', cursive;
-    text-align: center;
-  }
-  
-  .project-description {
-    font-size: 20px;
-    color:white;
-    margin: 5px 0 0;
-    max-width: 350px; 
-    font-family: 'Comic Neue', cursive;
-    gap: 15;
-    text-align: center;
-  }
-  
-  /* Ajustes para dispositivos móviles */
-  @media (max-width: 768px) {
-    .project-cover {
-      flex-direction: column; /* En pantallas pequeñas, la imagen y el texto estarán apilados verticalmente */
-      padding: 20px; /* Añadir más espacio para la apariencia en móviles */
-    }
-  
-    .project-cover img {
-      width: 70%; /* Ajustar el tamaño de la imagen para que ocupe el ancho completo en móviles */
-    }
-  
-    .project-info {
-      margin-top: 10px; /* Añadir espacio entre la imagen y la descripción */
-    }
-  
-    .project-title {
-      font-size: 18px; /* Reducir el tamaño de la fuente en dispositivos móviles */
-    }
-  
-    .project-description {
-      font-size: 16px; /* Reducir el tamaño de la fuente de la descripción */
-      margin-top: 8px; /* Añadir margen para separar más la descripción */
-    }
-  }
-  </style>
-  
+
+    <div v-if="showVideo" class="video-overlay" @click="closeVideo">
+      <div class="video-container" @click.stop>
+        <iframe
+          :src="videoUrl"
+          frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          class="video-iframe"
+        ></iframe>
+      </div>
+    </div>
+  </div>
+</template>
+
+<style scoped>
+.projects-section {
+  padding: 20px;
+  text-align: center;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+.project-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  justify-items: center;
+}
+
+.project-card {
+  width: 100%;
+  max-width: 350px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.project-card:hover {
+  transform: scale(1.05);
+}
+
+.project-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-bottom: 2px solid #ccc;
+}
+
+.project-info {
+  padding: 15px;
+}
+
+.project-info h3 {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.project-info p {
+  font-size: 16px;
+  margin-top: 8px;
+  color: #555;
+}
+
+/* Estilo para el video emergente */
+.video-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.video-container {
+  position: relative;
+  width: 80%;
+  max-width: 800px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.video-iframe {
+  width: 100%;
+  height: 450px;
+  border-radius: 10px;
+}
+</style>
+
+

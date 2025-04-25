@@ -8,3 +8,6 @@ export default defineConfig({
     allowedHosts: ["d5wyxr-5173.csb.app"], // <-- Add this line
   },
 });
+
+
+s
